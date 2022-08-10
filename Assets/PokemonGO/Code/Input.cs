@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using PlayerInput = PokemonGO.Code.Generated.PlayerInput;
 
-namespace PokemonGO.Code
+namespace PokemonGO
 {
     public class Input : Singleton<Input>
     {

@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 // Cartoon FX  - (c) 2015 Jean Moreno
 
@@ -7,37 +7,40 @@ using System.Collections;
 // Check is performed every 0.5 seconds to not query the particle system's state every frame.
 // (only deactivates the object if the OnlyDeactivate flag is set, automatically used with CFX Spawn System)
 
-[RequireComponent(typeof(ParticleSystem))]
-public class CFX_AutoDestructShuriken : MonoBehaviour
+namespace PokemonGO.Art.JMO_Assets.Cartoon_FX.Scripts
 {
-	// If true, deactivate the object instead of destroying it
-	public bool OnlyDeactivate;
-	
-	void OnEnable()
+	[RequireComponent(typeof(ParticleSystem))]
+	public class CFX_AutoDestructShuriken : MonoBehaviour
 	{
-		StartCoroutine("CheckIfAlive");
-	}
+		// If true, deactivate the object instead of destroying it
+		public bool OnlyDeactivate;
 	
-	IEnumerator CheckIfAlive ()
-	{
-		ParticleSystem ps = this.GetComponent<ParticleSystem>();
-		
-		while(true && ps != null)
+		void OnEnable()
 		{
-			yield return new WaitForSeconds(0.5f);
-			if(!ps.IsAlive(true))
+			StartCoroutine("CheckIfAlive");
+		}
+	
+		IEnumerator CheckIfAlive ()
+		{
+			ParticleSystem ps = this.GetComponent<ParticleSystem>();
+		
+			while(true && ps != null)
 			{
-				if(OnlyDeactivate)
+				yield return new WaitForSeconds(0.5f);
+				if(!ps.IsAlive(true))
 				{
-					#if UNITY_3_5
+					if(OnlyDeactivate)
+					{
+#if UNITY_3_5
 						this.gameObject.SetActiveRecursively(false);
-					#else
+#else
 						this.gameObject.SetActive(false);
-					#endif
+#endif
+					}
+					else
+						GameObject.Destroy(this.gameObject);
+					break;
 				}
-				else
-					GameObject.Destroy(this.gameObject);
-				break;
 			}
 		}
 	}

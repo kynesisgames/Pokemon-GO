@@ -4,7 +4,7 @@ using DG.Tweening;
 using Kynesis.Utilities;
 using UnityEngine;
 
-namespace PokemonGO.Code
+namespace PokemonGO
 {
     public class PokeBall : MonoBehaviour
     {

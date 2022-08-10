@@ -1,4 +1,4 @@
-﻿namespace PokemonGO.Code.Global
+﻿namespace PokemonGO.Global
 {
     public static class Tag
     {

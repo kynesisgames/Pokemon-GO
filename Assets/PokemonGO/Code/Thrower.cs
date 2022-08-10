@@ -1,11 +1,12 @@
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Kynesis.Utilities;
-using PokemonGO.Code.Global;
+using PokemonGO.Global;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace PokemonGO.Code
+namespace PokemonGO
 {
     public class Thrower : MonoBehaviour
     {
@@ -59,7 +60,23 @@ namespace PokemonGO.Code
             Input.Instance.Pointer.started -= OnPointerStarted;
             Input.Instance.Pointer.canceled -= OnPointerCanceled;
         }
-        
+
+        private void Update()
+        {
+            if (!_isDragging)
+                return;
+            
+            FollowPointer();
+        }
+
+        private void FixedUpdate()
+        {
+            if (!_isDragging)
+                return;
+            
+            AddToque();
+        }
+
         private void StartDragging()
         {
             _pokeBall.transform.position = GetPointerPosition();
@@ -208,13 +225,13 @@ namespace PokemonGO.Code
             StopDragging();
         }
         
-        private IEnumerator<float> DraggingEnumerator()
+        private IEnumerator DraggingEnumerator()
         {   
             while (_isDragging)
             {
-                FollowPointer();
-                AddToque();
-                yield return 0f;
+                
+                
+                yield return null;
             }
         }
 

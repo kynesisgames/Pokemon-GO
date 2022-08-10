@@ -790,7 +790,7 @@ MonoBehaviour:
   _pokeBall: {fileID: 6193605886694613461}
   _rotationVFX: {fileID: 2241534753949450416}
   _rotationBlur: {fileID: 7276368475999300246}
-  _rotationMultiplier: -0.16
+  _rotationBlurMultiplier: -1
   _trail: {fileID: 2989906752060011074}
   _trailTime: 0.5
 --- !u!1 &5318050122920757388

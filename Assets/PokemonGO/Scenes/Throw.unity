@@ -7289,7 +7289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _followSpeed: 10
-  _torqueMultiplier: 0.22
+  _torqueMultiplier: 0.64
   _forceMultiplier: 0.16
   _heightMultiplier: 0.32
   _curveInfluence: 3.2

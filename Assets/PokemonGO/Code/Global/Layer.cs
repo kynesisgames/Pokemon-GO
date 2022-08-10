@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PokemonGO.Code.Global
+namespace PokemonGO.Global
 {
     public static class Layer
     {

@@ -1,6 +1,6 @@
 using Kynesis.Patterns;
 
-namespace PokemonGO.Code
+namespace PokemonGO
 {
     public class PokeBallFactory : FactoryInstantiate<PokeBallFactory, PokeBall>
     {
